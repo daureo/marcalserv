@@ -21,7 +21,7 @@ const scrollHeader = () => {
 };
 
 window.addEventListener('scroll', scrollHeader);
-// Open menu & search pop-up
+// Open menu 
 const menuToggleIcon = selectElement('#menu-toggle-icon');
 
 const toggleMenu = () => {
@@ -32,61 +32,29 @@ const toggleMenu = () => {
 
 menuToggleIcon.addEventListener('click', toggleMenu);
 
-// Open/Close search form popup
-const searchIcon = selectElement('#search-icon');
-const searchCloseIcon = selectElement('#form-close-btn');
-const searchForm = selectElement('#search-form-container');
 
-const toggleSearch = () => {
-    searchForm.classList.toggle('activated');
-}
-
-searchIcon.addEventListener('click', toggleSearch);
-searchCloseIcon.addEventListener('click', toggleSearch);
-
-// -- Close the search form popup on ESC keypress
+// -- Close the menu form popup on ESC keypress
 
 window.addEventListener('keyup', event => {
-    if (event.key === 'Escape') searchForm.classList.remove('activated');
+    if (event.key === 'Escape') selectElement('#menu').classList.remove('activated');
 });
 
-// Switch theme/add to local storage
-const bodyElement = document.body;
-const themeToggleBtn = selectElement('#theme-toggle-btn');
-const currenTheme = localStorage.getItem('currentTheme');
 
-if (currenTheme) {
-    bodyElement.classList.add('light-theme');
+//pegar o link e referenciar o elemento pai (li) e adicionar e toggle a classe current para ativar o link clicado
+//loop todos li/a para garantir que desliga o current e if this.element ligar o current
+const linksMenu = document.querySelectorAll('.link-menu');
+
+for (let link of linksMenu){    
+    link.addEventListener('click', ()=> { toggleCurrentMenu(link) });
 }
 
-themeToggleBtn.addEventListener('click', () => {
-    bodyElement.classList.toggle('light-theme');
+function toggleCurrentMenu(linkMenu){
+    
+    for (let link of linksMenu){
+        link.parentNode.classList.remove('current');
+    }
 
-    if (bodyElement.classList.contains('light-theme')) {
-        localStorage.setItem('currentTheme', 'themeActive');
-    } else {
-        localStorage.removeItem('currentTheme');
-    }
-})
-// Swiper
-/*
-const swiper = new Swiper('.swiper',{
-    slidesPerView: 1,
-    spaceBetween: 20,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-    },
-    pagination: {
-        el: '.swiper-pagination'
-    },
-    breakpoints: {
-        700: {
-            slidesPerView: 2
-        },
-        1200: {
-            slidesPerView: 3
-        }
-    }
-})
-*/
+    linkMenu.parentNode.classList.add('current');
+}
+
+//linksMenu[i].parentNode
