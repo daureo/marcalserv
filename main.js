@@ -55,6 +55,7 @@ function toggleCurrentMenu(linkMenu){
     }
 
     linkMenu.parentNode.classList.add('current');
+    toggleMenu();
 }
 
 //linksMenu[i].parentNode
