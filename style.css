@@ -39,6 +39,8 @@ body {
     background-color: var(--vl-gray);
     letter-spacing: 1px;
     transition: background-color .25s, color .25s;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -186,7 +188,7 @@ i {
 
 .section {
     
-   
+   height: auto;
     
 }
 
@@ -201,6 +203,8 @@ i {
 
 .section-light{
     color: var(--vd-violet);
+    background: url(./images/bg-pattern-intro-right-mobile.svg) no-repeat bottom right;
+    background-blend-mode: overlay;
 }
 
 .home-section {
@@ -230,11 +234,53 @@ i {
 }
 
 .section-bottom{
-    min-height: 200px;
+    min-height: 50px;
     min-width: 100%;    
-    background: url(./images/bg-pattern-intro-right-mobile.svg) no-repeat bottom right;    
+    
+    background-blend-mode: ;    
 }
 
 .section-division{
- 
+ max-width: 50%;
+ max-height: 50%;
+ margin: 50px auto 0 auto; 
+}
+
+.section-clients{
+    overflow: hidden;
+}
+
+.article-image{
+    max-width: 200px;
+    padding-bottom: 50px;
+}
+
+/*- Swiper */
+.article.swiper-slide{
+    height: auto; /*  height coming from tutorial, in order to fit needs 10rem more */
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-wrapper{
+    height: 10px;
+}
+
+.swiper-controls{
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--vl-gray);
+}
+
+.swiper-controls::after{
+    font-size: 1.6rem;
+    color: var(--light-color);
+}
+
+.swiper-pagination{
+    bottom: .5rem !important;
+}
+
+.swiper-pagination-bullet{
+    background-color: var(--vd-g-violet);
 }
