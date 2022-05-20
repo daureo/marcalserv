@@ -12,8 +12,7 @@
     --vd-g-violet: hsl(273, 4%, 51%);
     --vl-gray: hsl(0, 0%, 98%);
     --font-family-body: 'Karla', sans-serif;
-    --font-family-header: 'DM Serif Display', serif;
-    --font-family-body: ;
+    --font-family-header: 'DM Serif Display', serif;    
     --font-size-sm: 2rem;
     --gap: 1rem;
 
@@ -65,11 +64,6 @@ button {
     background-color: transparent;
     outline: none;
 }
-
-i {
-    font-size: var(--font-size-md);
-}
-
 
 /* Reusable classes */
 .container {
@@ -237,7 +231,6 @@ i {
     min-height: 50px;
     min-width: 100%;
 
-    background-blend-mode: ;
 }
 
 .section-division {
@@ -252,7 +245,7 @@ i {
 .section-division img {
     width: 50%;
     height: auto;
-
+        
 }
 
 .section-clients {
